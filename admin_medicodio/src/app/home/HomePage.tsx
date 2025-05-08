@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
       title: 'Blog',
       description: 'Read our latest articles and updates',
       icon: '📝',
-      path: '/blog'
+      path: '/blogs'
     },
     {
       title: 'Events',

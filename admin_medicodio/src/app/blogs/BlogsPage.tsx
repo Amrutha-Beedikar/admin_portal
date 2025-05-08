@@ -3,19 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import BlogForm from './BlogForm';
 import BlogCard from './BlogCard';
-
-interface Blog {
-  _id: string;
-  slug: string;
-  title: string;
-  content: string;
-  author_name?: string;
-  category?: string;
-  tags?: string[];
-  thumbnail_url?: string;
-  thumbnail_alt_text?: string;
-  default_date?: string;
-}
+import { Blog, BlogFormData } from './types';
 
 const BlogsPage: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -45,7 +33,7 @@ const BlogsPage: React.FC = () => {
     fetchBlogs();
   }, []);
 
-  const handleAddBlog = async (blogData: Omit<Blog, '_id'>) => {
+  const handleAddBlog = async (blogData: BlogFormData) => {
     try {
       const response = await fetch('/api/blogs', {
         method: 'POST',
